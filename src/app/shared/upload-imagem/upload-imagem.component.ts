@@ -8,9 +8,9 @@ import { AbstractControl } from '@angular/forms';
 })
 export class UploadImagemComponent implements OnInit {
   @Input() public referenciaFormulario?: AbstractControl;
-  @Input() public classeCssContainer?: string;
+  @Input() public classeCssContainer: string = '';
   @Input() public imagemPrevisualizacao?: string;
-  @Input() public classeCssimagemPrevisualizacao?: string = '';
+  @Input() public classeCssimagemPrevisualizacao: string = '';
   @Output() public aoAtualizarImagem: EventEmitter<string> = new EventEmitter();
 
   constructor() {}
