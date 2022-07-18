@@ -35,3 +35,12 @@ body {
 .oculto {
   display: none !important;
 }
+
+input {
+
+  &::placeholder,
+  &:-ms-input-placeholder,
+  &::-ms-input-placeholder {
+    color: var(--cinza2);
+  }
+}
