@@ -20,4 +20,16 @@ export class InputPublicoComponent implements OnInit {
     this.referenciaFormulario?.setValue(event);
     this.referenciaFormulario?.markAsDirty();
   }
+
+  public obtermensagemErro(): string {
+    if (!this.referenciaFormulario?.errors) {
+      return '';
+    }
+
+    if (this.referenciaFormulario?.errors['required']) {
+      return 'Campo obrigatorio!';
+    }
+
+    return 'Problema no preenchimento';
+  }
 }

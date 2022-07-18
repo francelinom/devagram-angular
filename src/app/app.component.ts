@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  AbstractControl,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -15,9 +20,14 @@ export class AppComponent {
     this.form = fb.group({
       imagem: [null],
       nome: ['', Validators.required],
+      senha: ['', Validators.required],
     });
   }
   public aoTrocarImagem() {
     console.log('trocou imagem');
+  }
+
+  public obterReferencia(nomeCampo: string): AbstractControl {
+    return this.form.controls[nomeCampo];
   }
 }
