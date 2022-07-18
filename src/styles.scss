@@ -44,3 +44,9 @@ input {
     color: var(--cinza2);
   }
 }
+
+.mensagemErro {
+  color: var(--vermelho);
+  margin: 5px 0 0;
+  font-size: 90%;
+}
