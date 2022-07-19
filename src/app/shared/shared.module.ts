@@ -5,6 +5,7 @@ import { AvatarComponent } from './avatar/avatar.component';
 import { UploadImagemComponent } from './upload-imagem/upload-imagem.component';
 import { InputPublicoComponent } from './publico/input-publico/input-publico.component';
 import { FormsModule } from '@angular/forms';
+import { PaginaPublicaComponent } from './publico/pagina-publica/pagina-publica.component';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { FormsModule } from '@angular/forms';
     AvatarComponent,
     UploadImagemComponent,
     InputPublicoComponent,
+    PaginaPublicaComponent,
   ],
   imports: [CommonModule, FormsModule],
   exports: [
@@ -19,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     AvatarComponent,
     UploadImagemComponent,
     InputPublicoComponent,
+    PaginaPublicaComponent,
   ],
 })
 export class SharedModule {}
