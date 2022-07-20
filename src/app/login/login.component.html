@@ -9,11 +9,17 @@
   </app-input-publico>
 
   <app-input-publico
-  imagem="assets/imagens/chave.svg"
-  placeholder="Senha"
-  tipo="password"
-  [referenciaFormulario]="obterReferencia('senha')"
-  conteudoFormulario
->
-</app-input-publico>
+    imagem="assets/imagens/chave.svg"
+    placeholder="Senha"
+    tipo="password"
+    [referenciaFormulario]="obterReferencia('senha')"
+    conteudoFormulario
+  >
+  </app-input-publico>
+  <app-rodape-pagina-publica
+    pergunta="Não possui uma conta?"
+    textoDaAcao="Faça seu cadastro agora!"
+    rota="cadastro"
+    rodape
+  ></app-rodape-pagina-publica>
 </app-pagina-publica>

@@ -1,0 +1,13 @@
+.rodapePaginaPublica {
+    text-align: center;
+
+    p {
+        color: var(--cinza3);
+        margin: 0px 0px 2px;
+    }
+
+    a {
+        color: var(--corPrimaria);
+        font-family: var(--fontBold);
+    }
+}

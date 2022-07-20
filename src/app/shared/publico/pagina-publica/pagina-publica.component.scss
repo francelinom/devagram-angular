@@ -9,4 +9,8 @@
   .containerConteudo {
     width: 100%;
   }
+
+  @media screen and (min-width: var(--breakpointDesktop)) {
+    flex-direction: row;
+  }
 }
