@@ -17,6 +17,7 @@ export class CadastroComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
+      file: [null],
       nome: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
       senha: ['', [Validators.required, Validators.minLength(4)]],

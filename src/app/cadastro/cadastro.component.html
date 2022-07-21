@@ -1,4 +1,16 @@
-<app-pagina-publica textoBotaoSubmit="Cadastrar">
+<app-pagina-publica
+  classeCssCustomizada="paginaCAdastro"
+  classCssLogo="desktop"
+  textoBotaoSubmit="Cadastrar"
+>
+  <app-upload-imagem
+    imagemPrevisualizacao="assets/imagens/avatar.svg"
+    classeCssimagemPrevisualizacao="avatarPrevisualizacao"
+    [referenciaFormulario]="obterReferencia('file')"
+    conteudoFormulario
+  >
+  </app-upload-imagem>
+
   <app-input-publico
     imagem="assets/imagens/usuarioAtivo.svg"
     placeholder="Nome completo"
@@ -37,7 +49,7 @@
   <app-rodape-pagina-publica
     pergunta="Já possui uma conta?"
     textoDaAcao="Faça seu login agora!"
-    rota="login"
+    rota="/login"
     rodape
   ></app-rodape-pagina-publica>
 </app-pagina-publica>
