@@ -1,1 +1,43 @@
-<p>cadastro works!</p>
+<app-pagina-publica textoBotaoSubmit="Cadastrar">
+  <app-input-publico
+    imagem="assets/imagens/usuarioAtivo.svg"
+    placeholder="Nome completo"
+    tipo="text"
+    [referenciaFormulario]="obterReferencia('nome')"
+    conteudoFormulario
+  >
+  </app-input-publico>
+  <app-input-publico
+    imagem="assets/imagens/envelope.svg"
+    placeholder="E-mail"
+    tipo="email"
+    [referenciaFormulario]="obterReferencia('login')"
+    conteudoFormulario
+  >
+  </app-input-publico>
+
+  <app-input-publico
+    imagem="assets/imagens/chave.svg"
+    placeholder="Senha"
+    tipo="password"
+    [referenciaFormulario]="obterReferencia('senha')"
+    conteudoFormulario
+  >
+  </app-input-publico>
+
+  <app-input-publico
+    imagem="assets/imagens/chave.svg"
+    placeholder="Confirmar senha"
+    tipo="password"
+    [referenciaFormulario]="obterReferencia('confirmacaoSenha')"
+    conteudoFormulario
+  >
+  </app-input-publico>
+
+  <app-rodape-pagina-publica
+    pergunta="Já possui uma conta?"
+    textoDaAcao="Faça seu login agora!"
+    rota="login"
+    rodape
+  ></app-rodape-pagina-publica>
+</app-pagina-publica>
