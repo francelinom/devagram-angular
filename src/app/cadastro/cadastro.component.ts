@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { confirmacaoSenha } from '../shared/validadores/confirmacao-senha.validator';
+import { CadastroService } from './cadastro.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -15,7 +16,10 @@ import { confirmacaoSenha } from '../shared/validadores/confirmacao-senha.valida
 export class CadastroComponent implements OnInit {
   public form: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private serviceCadastro: CadastroService
+  ) {
     this.form = this.fb.group({
       file: [null],
       nome: ['', [Validators.required, Validators.minLength(3)]],
