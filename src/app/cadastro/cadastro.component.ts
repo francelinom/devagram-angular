@@ -21,7 +21,7 @@ export class CadastroComponent implements OnInit {
       nome: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
       senha: ['', [Validators.required, Validators.minLength(4)]],
-      confirmacaoSenha: ['', [Validators.required, confirmacaoSenha]],
+      confirmacaoSenha: ['', [Validators.required, confirmacaoSenha()]],
     });
   }
 
