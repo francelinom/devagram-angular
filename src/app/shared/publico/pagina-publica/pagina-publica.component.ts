@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-pagina-publica',
@@ -9,12 +9,13 @@ export class PaginaPublicaComponent implements OnInit {
   @Input() classeCssCustomizada: string = '';
   @Input() classCssLogo: string = '';
   @Input() textoBotaoSubmit?: string;
+  @Output() submiterFormulario: EventEmitter<any> = new EventEmitter();
 
   constructor() {}
 
   ngOnInit(): void {}
 
   public aoSubmeter() {
-    console.log('Submeteu...');
+    this.submiterFormulario.emit();
   }
 }
