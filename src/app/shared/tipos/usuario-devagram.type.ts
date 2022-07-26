@@ -3,4 +3,7 @@ export type UsuarioDevagram = {
   nome: string;
   email: string;
   avatar: string;
+  publicacoes: number;
+  seguidores: number;
+  seguindo: number;
 };

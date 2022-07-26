@@ -16,10 +16,9 @@ import { CadastroService } from './cadastro.service';
 })
 export class CadastroComponent implements OnInit {
   public form: FormGroup;
-
   constructor(
     private fb: FormBuilder,
-    private serviceCadastro: CadastroService,
+    private servicoCadastro: CadastroService,
     private autenticacaoService: AutenticacaoService
   ) {
     this.form = this.fb.group({
@@ -45,22 +44,24 @@ export class CadastroComponent implements OnInit {
 
     try {
       const valoresDoFormulario = this.form.value;
-      let corpoDaRequisicao = valoresDoFormulario;
+      const corpoDaRequisicao = new FormData();
+      corpoDaRequisicao.append('nome', valoresDoFormulario.nome);
+      corpoDaRequisicao.append('email', valoresDoFormulario.email);
+      corpoDaRequisicao.append('senha', valoresDoFormulario.senha);
+      console.log(this.form.value);
 
       if (valoresDoFormulario.file) {
-        corpoDaRequisicao = new FormData();
         corpoDaRequisicao.append('file', valoresDoFormulario.file);
-        corpoDaRequisicao.append('nome', valoresDoFormulario.nome);
-        corpoDaRequisicao.append('email', valoresDoFormulario.email);
-        corpoDaRequisicao.append('senha', valoresDoFormulario.senha);
       }
-      await this.serviceCadastro.cadastrar(corpoDaRequisicao);
+
+      await this.servicoCadastro.cadastrar(corpoDaRequisicao);
       await this.autenticacaoService.login({
         login: valoresDoFormulario.email,
         senha: valoresDoFormulario.senha,
       });
-    } catch (e: any) {
-      const mensagemErro = e?.error?.erro || 'Erro ao realizar o cadastro';
+    } catch (excecao: any) {
+      const mensagemErro =
+        excecao?.error?.erro || 'Erro ao realizar o cadastro!';
       alert(mensagemErro);
     }
   }
