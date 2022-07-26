@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { AutenticacaoService } from '../autenticacao/autenticacao.service';
 import { confirmacaoSenha } from '../shared/validadores/confirmacao-senha.validator';
 import { CadastroService } from './cadastro.service';
 
@@ -18,7 +19,8 @@ export class CadastroComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private serviceCadastro: CadastroService
+    private serviceCadastro: CadastroService,
+    private autenticacaoService: AutenticacaoService
   ) {
     this.form = this.fb.group({
       file: [null],
@@ -53,7 +55,10 @@ export class CadastroComponent implements OnInit {
         corpoDaRequisicao.append('senha', valoresDoFormulario.senha);
       }
       await this.serviceCadastro.cadastrar(corpoDaRequisicao);
-      // fazer o login
+      await this.autenticacaoService.login({
+        login: valoresDoFormulario.email,
+        senha: valoresDoFormulario.senha,
+      });
     } catch (e: any) {
       const mensagemErro = e?.error?.erro || 'Erro ao realizar o cadastro';
       alert(mensagemErro);

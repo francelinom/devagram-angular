@@ -31,7 +31,12 @@ export class AutenticacaoService extends DevagramApiService {
     localStorage.setItem('nome', respostaLogin.nome);
     localStorage.setItem('email', respostaLogin.email);
 
-    // TODO: Pegar os dados complementares do usuário logado
+    const dadosUsuarios = await this.usuarioApiService.buscarDadosUsuario();
+    localStorage.setItem('id', dadosUsuarios._id);
+
+    if (dadosUsuarios.avatar) {
+      localStorage.setItem('avatar', dadosUsuarios.avatar);
+    }
 
     this.router.navigateByUrl('/');
   }
