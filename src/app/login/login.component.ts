@@ -14,12 +14,11 @@ import { AutenticacaoService } from '../autenticacao/autenticacao.service';
 })
 export class LoginComponent implements OnInit {
   public form: FormGroup;
-
   constructor(
     private fb: FormBuilder,
     private servicoAutenticacao: AutenticacaoService
   ) {
-    this.form = fb.group({
+    this.form = this.fb.group({
       login: ['', [Validators.required, Validators.email]],
       senha: ['', [Validators.required, Validators.minLength(4)]],
     });
@@ -39,8 +38,8 @@ export class LoginComponent implements OnInit {
 
     try {
       await this.servicoAutenticacao.login(this.form.value);
-    } catch (e: any) {
-      const mensagemErro = e?.error?.erro || 'Erro ao realizar login';
+    } catch (excecao: any) {
+      const mensagemErro = excecao?.error?.erro || 'Erro ao realizar o login.';
       alert(mensagemErro);
     }
   }

@@ -19,7 +19,6 @@ export class DevagramApiInterceptorService implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     const token = localStorage.getItem('token');
     let novaReq = req;
-
     if (token) {
       novaReq = req.clone({
         headers: req.headers.set('Authorization', `Bearer ${token}`),

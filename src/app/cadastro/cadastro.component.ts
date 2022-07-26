@@ -48,7 +48,6 @@ export class CadastroComponent implements OnInit {
       corpoDaRequisicao.append('nome', valoresDoFormulario.nome);
       corpoDaRequisicao.append('email', valoresDoFormulario.email);
       corpoDaRequisicao.append('senha', valoresDoFormulario.senha);
-      console.log(this.form.value);
 
       if (valoresDoFormulario.file) {
         corpoDaRequisicao.append('file', valoresDoFormulario.file);

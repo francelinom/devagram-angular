@@ -6,7 +6,7 @@ import { DevagramApiService } from './devagram-api.service';
   providedIn: 'root',
 })
 export class DevagramUsuarioApiService extends DevagramApiService {
-  buscarDadosUsuario(): Promise<UsuarioDevagram> {
+  public buscarDadosUsuario(): Promise<UsuarioDevagram> {
     return this.get('usuario');
   }
 }

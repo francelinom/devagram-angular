@@ -18,6 +18,7 @@ export class AutenticacaoService extends DevagramApiService {
   ) {
     super(_http, _devagramUrlApi);
   }
+
   async login(credenciais: CredenciaisDevagram): Promise<void> {
     const respostaLogin: RespostaLoginDevagram = await this.post(
       'login',
@@ -31,17 +32,17 @@ export class AutenticacaoService extends DevagramApiService {
     localStorage.setItem('nome', respostaLogin.nome);
     localStorage.setItem('email', respostaLogin.email);
 
-    const dadosUsuarios = await this.usuarioApiService.buscarDadosUsuario();
-    localStorage.setItem('id', dadosUsuarios._id);
+    const dadosUsuario = await this.usuarioApiService.buscarDadosUsuario();
+    localStorage.setItem('id', dadosUsuario._id);
 
-    if (dadosUsuarios.avatar) {
-      localStorage.setItem('avatar', dadosUsuarios.avatar);
+    if (dadosUsuario.avatar) {
+      localStorage.setItem('avatar', dadosUsuario.avatar);
     }
 
     this.router.navigateByUrl('/');
   }
 
-  estadoLogado(): boolean {
+  estaLogado(): boolean {
     return localStorage.getItem('token') !== null;
   }
 
@@ -49,8 +50,8 @@ export class AutenticacaoService extends DevagramApiService {
     localStorage.removeItem('token');
     localStorage.removeItem('nome');
     localStorage.removeItem('email');
-    // TODO: Remover os dados complementares
-
+    localStorage.removeItem('avatar');
+    localStorage.removeItem('id');
     this.router.navigateByUrl('/login');
   }
 
