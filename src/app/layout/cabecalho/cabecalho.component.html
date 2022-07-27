@@ -1,0 +1,24 @@
+<header class="cabecalhoPrincipal">
+  <div class="conteudoCabecalhoPrincipal">
+    <div class="logoCabecalho">
+      <img
+        src="assets/imagens/logoHorizontal.svg"
+        alt="Logo Horizontal"
+        (click)="irParaHome()"
+      />
+    </div>
+
+    <div class="barraPesquisa">
+      <div class="iconePesquisa">
+        <img src="assets/imagens/lupa.svg" alt="Icone lupa" />
+      </div>
+
+      <input
+        type="text"
+        placeholder="Pesquisar"
+        [(ngModel)]="termoPesquisado"
+        (keyup)="pesquisarUsuario()"
+      />
+    </div>
+  </div>
+</header>

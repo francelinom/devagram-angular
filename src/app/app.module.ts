@@ -8,6 +8,8 @@ import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './login/login.component';
 import { LoginModule } from './login/login.module';
 import { CadastroModule } from './cadastro/cadastro.module';
+import { CabecalhoComponent } from './layout/cabecalho/cabecalho.component';
+import { LayoutModule } from './layout/layout.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +21,7 @@ import { CadastroModule } from './cadastro/cadastro.module';
     FormsModule,
     LoginModule,
     CadastroModule,
+    LayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
