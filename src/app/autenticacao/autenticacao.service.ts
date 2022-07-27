@@ -5,6 +5,7 @@ import { DevagramApiService } from '../shared/services/devagram-api.service';
 import { DevagramUsuarioApiService } from '../shared/services/devagram-usuario-api.service';
 import { CredenciaisDevagram } from './credenciais-devagram.type';
 import { RespostaLoginDevagram } from './resposta-login-devagram.type';
+import { UsuarioLogado } from './usuario-logado.type';
 
 @Injectable({
   providedIn: 'root',
@@ -56,4 +57,16 @@ export class AutenticacaoService extends DevagramApiService {
   }
 
   // TODO: Criar metodo extra para remover as informações do usuario logado
+  obterUsuarioLogado(): UsuarioLogado | null {
+    if (!this.estaLogado()) {
+      return null;
+    }
+
+    return {
+      id: localStorage.getItem('id'),
+      nome: localStorage.getItem('nome'),
+      email: localStorage.getItem('email'),
+      avatar: localStorage.getItem('avatar'),
+    } as UsuarioLogado;
+  }
 }

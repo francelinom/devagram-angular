@@ -21,4 +21,18 @@
       />
     </div>
   </div>
+
+  <div class="containeResultadoPesquisa" *ngIf="resultadoDaPesquisa.length">
+    <div
+      class="resultado"
+      *ngFor="let usuario of resultadoDaPesquisa"
+      (click)="irParaPerfilDoUsuario(usuario._id)"
+    >
+      <app-avatar [src]="usuario.avatar"></app-avatar>
+      <div class="informacoesUsuario">
+        <strong>{{ usuario.nome }}</strong>
+        <span>{{ usuario.email }}</span>
+      </div>
+    </div>
+  </div>
 </header>
