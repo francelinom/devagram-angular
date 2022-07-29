@@ -25,6 +25,7 @@ export class CabecalhoComponent implements OnInit {
   }
 
   public async pesquisarUsuario(): Promise<void> {
+    this.resultadoDaPesquisa = [];
     if (this.termoPesquisado.length < 3) {
       return;
     }

@@ -9,6 +9,6 @@ import { RodapeComponent } from './rodape/rodape.component';
 @NgModule({
   declarations: [CabecalhoComponent, NavegacaoComponent, RodapeComponent],
   imports: [CommonModule, FormsModule, SharedModule],
-  exports: [CabecalhoComponent],
+  exports: [CabecalhoComponent, RodapeComponent],
 })
 export class LayoutModule {}

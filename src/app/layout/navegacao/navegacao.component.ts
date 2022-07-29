@@ -11,21 +11,26 @@ export class NavegacaoComponent implements OnInit {
   private mapaDeRotas: ItemMenu = {
     home: {
       img: 'home',
-      rotas: [],
+      rotas: ['/'],
     },
     publicacoes: {
       img: 'publicacao',
-      rotas: [],
+      rotas: ['/publicacao'],
     },
     perfil: {
       img: 'usuario',
-      rotas: [],
+      rotas: ['/perfil/pessoal'],
     },
   };
 
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  public redirecionarPara(menu: string): void {
+    const rotaMenu = this.mapaDeRotas[menu];
+    this.router.navigateByUrl(rotaMenu.rotas[0]);
+  }
 
   public obterImagem(menu: string): string {
     const rotaMenu = this.mapaDeRotas[menu];
