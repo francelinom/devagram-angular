@@ -13,7 +13,7 @@ export class NavegacaoComponent implements OnInit {
       img: 'home',
       rotas: ['/'],
     },
-    publicacoes: {
+    publicacao: {
       img: 'publicacao',
       rotas: ['/publicacao'],
     },
