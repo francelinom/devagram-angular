@@ -30,7 +30,18 @@
         </strong>
 
         <p class="descricao">
-          {{ postagem.descricao }}
+          {{
+            postagem.descricao.substring(0, limiteCaracteresDescricao).trim()
+          }}
+          {{
+            postagem.descricao.length > limiteCaracteresDescricao ? "..." : ""
+          }}
+          <span
+            *ngIf="postagem.descricao.length > limiteCaracteresDescricao"
+            class="exibirMais"
+            (click)="exibirDescricaoCompleta()"
+            >mais</span
+          >
         </p>
       </div>
 
