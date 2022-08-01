@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { DevagramApiInterceptorService } from './services/devagram-api-interceptor.service';
 import { FeedComponent } from './components/feed/feed.component';
+import { PostagemComponent } from './components/feed/postagem/postagem.component';
 
 @NgModule({
   providers: [
@@ -33,6 +34,7 @@ import { FeedComponent } from './components/feed/feed.component';
     PaginaPublicaComponent,
     RodapePaginaPublicaComponent,
     FeedComponent,
+    PostagemComponent,
   ],
   imports: [CommonModule, FormsModule, RouterModule, HttpClientModule],
   exports: [
