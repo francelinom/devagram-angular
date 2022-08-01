@@ -1,1 +1,50 @@
-<p>feed works!</p>
+<div class="feedContainer conteudoDesktop">
+  <div class="containerPostagem" *ngFor="let postagem of postagens">
+    <a [routerLink]="'/perfil' + postagem.idUsuario">
+      <div class="cabecalhoPostagem">
+        <app-avatar [src]="postagem.usuario?.avatar"></app-avatar>
+        <strong>{{ postagem.usuario?.nome }}</strong>
+      </div>
+    </a>
+
+    <div class="fotoPostagem">
+      <img [src]="postagem.foto" alt="foto perfil" />
+    </div>
+
+    <div class="rodapePostagem">
+      <div class="acoesPostagem">
+        <img src="assets/imagens/curtir.svg" alt="icone curtir" />
+        <img
+          class="iconeComentario"
+          src="assets/imagens/comentario.svg"
+          alt="icone comentario"
+        />
+        <span class="curtidas">
+          Curtido por <strong>{{ postagem.quantidadeCurtidas }} pessoas</strong>
+        </span>
+      </div>
+
+      <div class="descricaoPostagem">
+        <strong class="nomeUsuario">
+          {{ postagem.usuario?.nome }}
+        </strong>
+
+        <p class="descricao">
+          {{ postagem.descricao }}
+        </p>
+      </div>
+
+      <div class="comentarios">
+        <div class="comentario" *ngFor="let comentario of postagem.comentarios">
+          <strong class="nomeUsuario">
+            {{ comentario.nome }}
+          </strong>
+
+          <p class="descricao">
+            {{ comentario.comentario }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
