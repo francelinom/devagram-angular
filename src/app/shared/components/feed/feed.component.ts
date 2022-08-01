@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AutenticacaoService } from 'src/app/autenticacao/autenticacao.service';
+import { UsuarioLogado } from 'src/app/autenticacao/usuario-logado.type';
 import { Postagem } from './postagem.type';
 
 const limiteCaracteresDescricaoPadrao = 90;
@@ -9,14 +11,12 @@ const limiteCaracteresDescricaoPadrao = 90;
   styleUrls: ['./feed.component.scss'],
 })
 export class FeedComponent implements OnInit {
-  public limiteCaracteresDescricao: number = limiteCaracteresDescricaoPadrao;
+  public usuarioLogado: UsuarioLogado | null;
   public postagens: Array<Postagem> = [];
 
-  constructor() {}
+  constructor(private servicoAutenticacao: AutenticacaoService) {
+    this.usuarioLogado = this.servicoAutenticacao.obterUsuarioLogado();
+  }
 
   ngOnInit(): void {}
-
-  public exibirDescricaoCompleta() {
-    this.limiteCaracteresDescricao = 99999999;
-  }
 }

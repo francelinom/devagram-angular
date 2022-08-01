@@ -17,7 +17,12 @@
     <div class="acoesPostagem">
       <img alt="Icone curtir" />
 
-      <img class="iconeComentario" alt="Icone comentar" />
+      <img
+        class="iconeComentario"
+        [src]="obterImagemComentario()"
+        alt="Icone comentar"
+        (click)="alternarExibicaoCaixaDeComentario()"
+      />
 
       <span class="curtidas">
         Curtido por <strong>{{ postagem.quantidadeCurtidas }} pessoas</strong>
@@ -60,5 +65,25 @@
         </p>
       </div>
     </div>
+  </div>
+
+  <div class="caixaComentario" *ngIf="deveExibirCaixaComentario">
+    <app-avatar [src]="usuarioLogado?.avatar"></app-avatar>
+    <textarea
+      (keyup)="verificarQuantidadeLinhas()"
+      (keyup.enter)="fazerComentario()"
+      [rows]="quantidadeLinhasTextarea"
+      [(ngModel)]="comentarioAtual"
+      autofocus="true"
+      placeholder="Adicione um comentário..."
+    ></textarea>
+
+    <button
+      type="button"
+      class="btnPublicar desktop"
+      (click)="fazerComentario()"
+    >
+      Publicar
+    </button>
   </div>
 </div>
