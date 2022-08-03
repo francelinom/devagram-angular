@@ -13,6 +13,9 @@ import { environment } from 'src/environments/environment';
 import { DevagramApiInterceptorService } from './services/devagram-api-interceptor.service';
 import { FeedComponent } from './components/feed/feed.component';
 import { PostagemComponent } from './components/feed/postagem/postagem.component';
+import { CabecalhoComponent } from './layout/cabecalho/cabecalho.component';
+import { RodapeComponent } from './layout/rodape/rodape.component';
+import { NavegacaoComponent } from './layout/navegacao/navegacao.component';
 
 @NgModule({
   providers: [
@@ -35,6 +38,9 @@ import { PostagemComponent } from './components/feed/postagem/postagem.component
     RodapePaginaPublicaComponent,
     FeedComponent,
     PostagemComponent,
+    CabecalhoComponent,
+    RodapeComponent,
+    NavegacaoComponent,
   ],
   imports: [CommonModule, FormsModule, RouterModule, HttpClientModule],
   exports: [
@@ -45,6 +51,8 @@ import { PostagemComponent } from './components/feed/postagem/postagem.component
     PaginaPublicaComponent,
     RodapePaginaPublicaComponent,
     FeedComponent,
+    CabecalhoComponent,
+    RodapeComponent,
   ],
 })
 export class SharedModule {}
