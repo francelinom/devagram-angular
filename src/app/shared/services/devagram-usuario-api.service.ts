@@ -19,4 +19,8 @@ export class DevagramUsuarioApiService extends DevagramApiService {
   ): Promise<Array<UsuarioDevagram>> {
     return this.get('pesquisa?id=' + idUsuario);
   }
+
+  public alternarSeguir(idUsuario: string) {
+    return this.put('seguir?id=' + idUsuario, {});
+  }
 }
