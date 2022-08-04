@@ -46,5 +46,7 @@ export class CabecalhoComponent implements OnInit {
     }
   }
 
-  public irParaPerfilDoUsuario(usuario: string): void {}
+  public irParaPerfilDoUsuario(idUsuario: string): void {
+    this.router.navigate(['perfil', idUsuario]);
+  }
 }

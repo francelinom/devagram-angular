@@ -90,7 +90,8 @@ export class PostagemComponent implements OnInit {
 
   public validarComentario(): boolean {
     return (
-      !this.estaFazendoRequisicaoParaBackend && this.comentarioAtual.length >= 3
+      !this.estaFazendoRequisicaoParaBackend &&
+      this.comentarioAtual.trim().length >= 3
     );
   }
 }

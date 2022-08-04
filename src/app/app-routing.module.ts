@@ -14,6 +14,12 @@ const routes: Routes = [
       import('./login/login.module').then((m) => m.LoginModule),
   },
   {
+    path: 'perfil',
+    canActivate: [AutenticacaoGuard],
+    loadChildren: () =>
+      import('./perfil/perfil.module').then((m) => m.PerfilModule),
+  },
+  {
     path: '',
     canActivate: [AutenticacaoGuard],
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
