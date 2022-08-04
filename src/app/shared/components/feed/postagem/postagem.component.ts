@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { UsuarioLogado } from 'src/app/shared/components/autenticacao/usuario-logado.type';
+import { FeedService } from '../feed.service';
 import { Postagem } from '../postagem.type';
 
 const limiteCaracteresDescricaoPadrao = 90;
@@ -17,7 +18,7 @@ export class PostagemComponent implements OnInit {
   public comentarioAtual: string = '';
   public deveExibirCaixaComentario: boolean = false;
   public limiteCaracteresDescricao: number = limiteCaracteresDescricaoPadrao;
-  constructor() {}
+  constructor(private feedService: FeedService) {}
 
   ngOnInit(): void {}
 
@@ -41,5 +42,25 @@ export class PostagemComponent implements OnInit {
 
   public alternarExibicaoCaixaDeComentario() {
     this.deveExibirCaixaComentario = !this.deveExibirCaixaComentario;
+  }
+
+  public async manipularCurtida(): Promise<void> {
+    try {
+      await this.feedService.alternarCurtida(this.postagem._id);
+      if (this.postagem.estaCurtido) {
+        this.postagem.quantidadeCurtidas!--;
+      } else {
+        this.postagem.quantidadeCurtidas!++;
+      }
+      this.postagem.estaCurtido = !this.postagem.estaCurtido;
+    } catch (e: any) {
+      alert(e.error?.erro || 'Erro ao curtir/descurtir o post!');
+    }
+  }
+
+  public obterImagemCurtida() {
+    const iconeBase = this.postagem.estaCurtido ? 'descurtir' : 'curtir';
+
+    return `assets/imagens/${iconeBase}.svg`;
   }
 }

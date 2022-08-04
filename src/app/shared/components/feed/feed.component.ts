@@ -24,7 +24,15 @@ export class FeedComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     try {
-      this.postagens = await this.feedService.carregarPostagens();
+      const postagensApi = await this.feedService.carregarPostagens();
+      this.postagens = postagensApi.map(
+        (postagem) =>
+          ({
+            ...postagem,
+            estaCurtido: postagem.likes.includes(this.usuarioLogado?.id || ''),
+            quantidadeCurtidas: postagem.likes.length,
+          } as Postagem)
+      );
     } catch (e: any) {
       alert(e.error?.erro || 'Erro ao carregar o feed');
     }
