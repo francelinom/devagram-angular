@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { UsuarioLogado } from 'src/app/autenticacao/usuario-logado.type';
+import { UsuarioLogado } from 'src/app/shared/components/autenticacao/usuario-logado.type';
 import { Postagem } from '../postagem.type';
 
 const limiteCaracteresDescricaoPadrao = 90;

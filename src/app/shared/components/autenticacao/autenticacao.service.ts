@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { DevagramApiService } from '../shared/services/devagram-api.service';
-import { DevagramUsuarioApiService } from '../shared/services/devagram-usuario-api.service';
+import { DevagramApiService } from '../../services/devagram-api.service';
+import { DevagramUsuarioApiService } from '../../services/devagram-usuario-api.service';
 import { CredenciaisDevagram } from './credenciais-devagram.type';
 import { RespostaLoginDevagram } from './resposta-login-devagram.type';
 import { UsuarioLogado } from './usuario-logado.type';
