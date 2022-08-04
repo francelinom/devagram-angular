@@ -8,7 +8,6 @@ import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './login/login.component';
 import { LoginModule } from './login/login.module';
 import { CadastroModule } from './cadastro/cadastro.module';
-import { LayoutModule } from './shared/layout/layout.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +19,6 @@ import { LayoutModule } from './shared/layout/layout.module';
     FormsModule,
     LoginModule,
     CadastroModule,
-    LayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
