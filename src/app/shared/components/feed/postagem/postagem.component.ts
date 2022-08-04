@@ -18,6 +18,7 @@ export class PostagemComponent implements OnInit {
   public comentarioAtual: string = '';
   public deveExibirCaixaComentario: boolean = false;
   public limiteCaracteresDescricao: number = limiteCaracteresDescricaoPadrao;
+  public estaFazendoRequisicaoParaBackend: boolean = false;
   constructor(private feedService: FeedService) {}
 
   ngOnInit(): void {}
@@ -34,7 +35,30 @@ export class PostagemComponent implements OnInit {
     return `assets/imagens/${iconeBase}.svg`;
   }
 
-  public fazerComentario() {}
+  public async fazerComentario() {
+    if (!this.validarComentario()) {
+      return;
+    }
+
+    this.estaFazendoRequisicaoParaBackend = true;
+
+    try {
+      await this.feedService.adicionarComentario(
+        this.postagem._id,
+        this.comentarioAtual
+      );
+      this.postagem.comentarios.push({
+        comentario: this.comentarioAtual,
+        nome: this.usuarioLogado?.nome!,
+      });
+      this.comentarioAtual = '';
+      this.alternarExibicaoCaixaDeComentario();
+    } catch (e: any) {
+      alert(e.error?.erro || 'Erro ao realizar comentario!');
+    }
+
+    this.estaFazendoRequisicaoParaBackend = false;
+  }
 
   public verificarQuantidadeLinhas() {
     this.quantidadeLinhasTextarea = this.comentarioAtual.length > 0 ? 2 : 1;
@@ -62,5 +86,11 @@ export class PostagemComponent implements OnInit {
     const iconeBase = this.postagem.estaCurtido ? 'descurtir' : 'curtir';
 
     return `assets/imagens/${iconeBase}.svg`;
+  }
+
+  public validarComentario(): boolean {
+    return (
+      !this.estaFazendoRequisicaoParaBackend && this.comentarioAtual.length >= 3
+    );
   }
 }
