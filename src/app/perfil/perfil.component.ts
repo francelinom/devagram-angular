@@ -11,7 +11,7 @@ import { UsuarioDevagram } from '../shared/tipos/usuario-devagram.type';
   styleUrls: ['./perfil.component.scss'],
 })
 export class PerfilComponent implements OnInit {
-  public usuario: UsuarioDevagram | null = null;
+  public usuario: any | null = null;
   private usuarioLogado?: UsuarioLogado | null;
 
   constructor(
