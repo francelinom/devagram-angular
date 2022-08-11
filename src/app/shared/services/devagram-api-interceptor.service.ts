@@ -5,7 +5,8 @@ import {
   HttpRequest,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { delay, finalize, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
+import { delay, finalize } from 'rxjs/operators';
 import { LoadingService } from '../components/loading/loading.service';
 
 @Injectable({
