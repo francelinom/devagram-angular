@@ -17,6 +17,7 @@ import { CabecalhoComponent } from './layout/cabecalho/cabecalho.component';
 import { RodapeComponent } from './layout/rodape/rodape.component';
 import { NavegacaoComponent } from './layout/navegacao/navegacao.component';
 import { CabecalhoComAcoesComponent } from './components/cabecalho-com-acoes/cabecalho-com-acoes.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   providers: [
@@ -43,6 +44,7 @@ import { CabecalhoComAcoesComponent } from './components/cabecalho-com-acoes/cab
     RodapeComponent,
     NavegacaoComponent,
     CabecalhoComAcoesComponent,
+    LoadingComponent,
   ],
   imports: [CommonModule, FormsModule, RouterModule, HttpClientModule],
   exports: [
