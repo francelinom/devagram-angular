@@ -16,6 +16,7 @@ import { PostagemComponent } from './components/feed/postagem/postagem.component
 import { CabecalhoComponent } from './layout/cabecalho/cabecalho.component';
 import { RodapeComponent } from './layout/rodape/rodape.component';
 import { NavegacaoComponent } from './layout/navegacao/navegacao.component';
+import { CabecalhoComAcoesComponent } from './components/cabecalho-com-acoes/cabecalho-com-acoes.component';
 
 @NgModule({
   providers: [
@@ -41,6 +42,7 @@ import { NavegacaoComponent } from './layout/navegacao/navegacao.component';
     CabecalhoComponent,
     RodapeComponent,
     NavegacaoComponent,
+    CabecalhoComAcoesComponent,
   ],
   imports: [CommonModule, FormsModule, RouterModule, HttpClientModule],
   exports: [
@@ -53,6 +55,7 @@ import { NavegacaoComponent } from './layout/navegacao/navegacao.component';
     FeedComponent,
     CabecalhoComponent,
     RodapeComponent,
+    CabecalhoComAcoesComponent,
   ],
 })
 export class SharedModule {}
