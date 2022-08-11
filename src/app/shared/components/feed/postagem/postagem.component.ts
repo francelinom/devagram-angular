@@ -27,6 +27,14 @@ export class PostagemComponent implements OnInit {
     this.limiteCaracteresDescricao = 99999999;
   }
 
+  public obterUrlPerfil(): string {
+    let idUsuarioPostagem = this.postagem.idUsuario;
+    if (idUsuarioPostagem === this.usuarioLogado?.id) {
+      idUsuarioPostagem = 'pessoal';
+    }
+    return '/perfil/' + idUsuarioPostagem;
+  }
+
   public obterImagemComentario() {
     const iconeBase = this.deveExibirCaixaComentario
       ? 'comentarioAtivo'
