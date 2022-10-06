@@ -16,7 +16,7 @@
 
 ## Sobre
 
-O Projeto **DevagramAngular** foi desenvolvido para estudo para criar uma aplicação que é o clone simplificado o instagram com Angular e consumindo uma api que foi desenvolvida com o Next.js.
+O Projeto **DevagramAngular** foi desenvolvido para estudo para criar uma aplicação que é o clone simplificado o instagram com Angular e consumindo uma api que foi desenvolvida com o Next.js..
 ---
 
 ## Funcionalidade da Aplicação
