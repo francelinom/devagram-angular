@@ -36,10 +36,10 @@ A aplicação exemplo consiste em um clone básico do instagram, aqui fica uma o
 ## Tecnologias utilizadas 
 
 O projeto foi desenvolvido utilizando as seguintes tecnologias
-- Angular 13
-- TypeScript
-- SCSS
-- HTML
+- Angular 13;
+- TypeScript;
+- SCSS;
+- HTML.
 
 ---
 
